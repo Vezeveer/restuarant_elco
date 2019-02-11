@@ -6,29 +6,38 @@
     <title>ELCO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
+    
 </head>
 <body>
     <header>
-
-
-        
-        
-        <div id="menu-btn">
+        <nav class="menu-slide">
+            <a>Home</a>
+            <a>Breakfast</a>
+            <a>Lunch</a>
+            <a>Dinner</a>
+            <a>About</a>
+        </nav>
+        <div id="menu-btn" onclick="openMenu()">
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
         <img id="logo" src="logo.png" height="40px" alt="logo img here">
 
-        <div class="elconsos-div">
-            <div class="elconsos-bg">
-                <h1>EL CONSOS<br>
-                    RESTAURANT</h1>
-            </div>
-        </div>
+        
         <div class="header-filler"></div>
+        <div class="header-bg">
+                <div class="elconsos-div">
+                        <div class="elconsos-bg">
+                            <h1>EL CONSOS<br>
+                                RESTAURANT</h1>
+                        </div>
+                    </div>
+        </div>
         <div id="scroll-arrow">&#8595;</div>
     </header>
+
+
+    <script src="main.js"></script>
 </body>
 </html>
