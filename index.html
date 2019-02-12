@@ -10,6 +10,7 @@
 </head>
 <body>
     <header>
+        <div class="top-bar"></div>
         <nav class="menu-slide">
             <a>Home</a>
             <a>Breakfast</a>
@@ -22,11 +23,12 @@
                 <div></div>
                 <div></div>
             </div>
-        <img id="logo" src="logo.png" height="40px" alt="logo img here">
+        <img onclick="scrollIntoView()" id="logo" src="logo.png" height="40px" alt="logo img here">
 
         
-        <div class="header-filler"></div>
         <div class="header-bg">
+                <div class="header-filler"></div>
+
                 <div class="elconsos-div">
                         <div class="elconsos-bg">
                             <h1>EL CONSOS<br>
@@ -37,6 +39,10 @@
         <div id="scroll-arrow">&#8595;</div>
     </header>
 
+    <div id="upper"></div>
+    <div id="middle"></div>
+    <div id="lower"></div>
+   
 
     <script src="main.js"></script>
 </body>
