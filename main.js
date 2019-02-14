@@ -3,6 +3,7 @@ let headerBG = document.querySelector('.header-bg');
 var sect1 = document.querySelector('.section1');
 let scrollArrow = document.querySelector('#scroll-arrow');
 let logo = document.querySelector('.logo');
+let elcoDiv = document.querySelector('.elconsos-div');
 
 
 function openMenu(){
@@ -23,6 +24,9 @@ function changeBGtoSect1(){
 }
 function changeBGtoLand(){
     headerBG.style.backgroundImage = "url('Landing.jpg')";
+}
+function changeBGtoAbout(){
+    headerBG.style.backgroundImage = "url('aboutus.jpg')";
 }
 
 function scrollToMid(){
@@ -54,23 +58,54 @@ window.addEventListener('wheel', function(){
             scrollToMid();
             console.log('up',posCount)
             if(posCount == 1){ //enter landing
+            };
+            switch(posCount){
+            case(1):
                 changeBGtoLand();
                 posCount--;
                 scrollArrow.style.display = 'block';
-            };
-            if(posCount > 1 && posCount <= 5){
+                logo.className = 'logo';
+                elcoDiv.className = 'elconsos-div';
+                break;
+            case(2):
                 posCount--;
+                break;
+            case(3):
+                posCount--;
+                break;
+            case(4):
+                posCount--;
+                break;
+            case(5):
+                changeBGtoSect1();
+                posCount--;
+                break;
             }
         }else if(upperPos < 0){
             scrollToMid();
             console.log('down',posCount)
-            if(posCount == 0){ //enter section1
-                changeBGtoSect1();
+            switch(posCount){
+            case(0): //enter section1
+            changeBGtoSect1();
+            posCount++;
+            scrollArrow.style.display = 'none';
+            logo.className += ' logo-offScreen';
+            elcoDiv.className += ' elconsos-div-offScreen';
+                break;
+            case(1):
                 posCount++;
-                scrollArrow.style.display = 'none';
-                logo.className += ' logo-offScreen';
+                break;
+            case(2):
+                posCount++;
+                break;
+            case(3):
+                posCount++;
+                break;
+            case(4):
+            changeBGtoAbout();
+                posCount++;
+                break;
             }
-            
         }
     }, 100);
 }, false);

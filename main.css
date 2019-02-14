@@ -27,21 +27,14 @@ header{
     margin: 20px;
     z-index: 5;
     left: 20px;
+    top: 0px;
     position: absolute;
+    transition: top .5s;
 }
 .logo-offScreen{
-    top: -70px;
-    animation-name: logo-off;
-    animation-duration: 1s;
+    top: -65px;
 }
-@keyframes logo-off{
-    0%{
-        top: 0px;
-    }
-    100%{
-        top: -70px;
-    }
-}
+
 .top-bar{
     position: fixed;
     top: 0;
@@ -94,6 +87,11 @@ header h1{
     position: absolute;
     width: 100%;
     height: 300px;
+    left: 0px;
+    transition: .5s;
+}
+.elconsos-div-offScreen{
+    left: -600px;
 }
 
 .menu-slide{
