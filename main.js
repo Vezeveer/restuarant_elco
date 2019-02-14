@@ -4,18 +4,20 @@ var sect1 = document.querySelector('.section1');
 let scrollArrow = document.querySelector('#scroll-arrow');
 let logo = document.querySelector('.logo');
 let elcoDiv = document.querySelector('.elconsos-div');
-
+let topBar = document.querySelector('.top-bar');
+let mainContainer = document.querySelector('.main-container');
 
 function openMenu(){
 
     if(mbtn.style.opacity == '1'){
         mbtn.style.opacity = '0';
         headerBG.className = 'header-bg';
+        mainContainer.className = 'main-container'
 
     }else{
         mbtn.style.opacity = '1';
-        headerBG.className 
-        += ' blur-header-bg';
+        headerBG.className += ' blur';
+        mainContainer.className += ' blur';
     }
 }
 
@@ -57,8 +59,7 @@ window.addEventListener('wheel', function(){
         if(upperPos > 0){
             scrollToMid();
             console.log('up',posCount)
-            if(posCount == 1){ //enter landing
-            };
+            
             switch(posCount){
             case(1):
                 changeBGtoLand();
@@ -66,6 +67,8 @@ window.addEventListener('wheel', function(){
                 scrollArrow.style.display = 'block';
                 logo.className = 'logo';
                 elcoDiv.className = 'elconsos-div';
+                headerBG.style.filter = 'none';
+                topBar.style.display = 'none';
                 break;
             case(2):
                 posCount--;
@@ -91,6 +94,8 @@ window.addEventListener('wheel', function(){
             scrollArrow.style.display = 'none';
             logo.className += ' logo-offScreen';
             elcoDiv.className += ' elconsos-div-offScreen';
+            headerBG.style.filter = 'brightness(.5)';
+            topBar.style.display = 'block';
                 break;
             case(1):
                 posCount++;
