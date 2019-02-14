@@ -16,18 +16,31 @@ header{
     background-size: cover;
     background-position: 50% 50%;
     height: 100%;
-    transition: .5s;
+    transition: background-image .1s;
 }
 .blur-header-bg{
     filter: blur(3px);
     transition: .5s;
     
 }
-#logo{
+.logo{
     margin: 20px;
     z-index: 5;
     left: 20px;
     position: absolute;
+}
+.logo-offScreen{
+    top: -70px;
+    animation-name: logo-off;
+    animation-duration: 1s;
+}
+@keyframes logo-off{
+    0%{
+        top: 0px;
+    }
+    100%{
+        top: -70px;
+    }
 }
 .top-bar{
     position: fixed;
