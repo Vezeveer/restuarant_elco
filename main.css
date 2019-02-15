@@ -302,7 +302,6 @@ footer{
 
 
 .desk-nav-container{
-    background: red;
     width: 100%;
     max-width: 900px;
     margin: auto;
@@ -330,7 +329,7 @@ footer{
 }
 .desk-land-img{
     width: 100%;
-    min-width: 1024px;
+    min-width: 1048px;
 }
 .desk-land-img-container{
     height: 100vh;
@@ -340,13 +339,13 @@ footer{
 .desk-elconsos-container{
     width: 100%;
     position: absolute;
-    top: 40%;
+    top: 37%;
     margin-left: 400px;
     text-align: center;
     margin: 0 auto;
 }
 .desk-elconsos-container div{
-    background: rgba(24, 14, 1, 0.781);
+    background: rgba(24, 14, 1, 0.507);
     width: 290px;
     margin: 0 auto;
     color: rgb(231, 219, 202);
@@ -355,6 +354,69 @@ footer{
     padding: 20px 0;
     font-size: 2.5em;
 }
+.desk-header{
+    /**/
+}
+
+/*Section Starts Here*/
+.desktop-meals{
+    background-image: url('desktopsection.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 100vmin;
+    
+}
+.desk-meals-inner{
+    width: 100%;
+    height: 100%;
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.desk-meals-inner-inner{
+    width: 100%;
+    margin-top: 10px;
+    background: rgba(216, 205, 171, 0.466);
+    color: rgba(243, 245, 153, 0.897);
+}
+
+.desk-header-meals{
+    display: flex;
+    justify-content: space-evenly;
+    background: rgba(10, 10, 10, 0.685);
+}
+.desk-meals-content img{
+    width: 100%;
+
+    position: absolute;
+}
+.desk-meals-content p{
+    position: absolute;
+    z-index: 1;
+    bottom: -16px;
+    text-align: center;
+    background: rgba(20, 20, 20, 0.329);
+}
+.desk-meals-content{
+    width: 100%;
+}
+.desk-meals-content div{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.desk-meals-content div div{
+    position: relative;
+    background: green;
+    margin: 20px;
+    width: 150px;
+    height: 150px;
+}
+
 
 @media only screen and (min-width: 720px){
     .header-mobile, #upper, #middle, #lower, .main-container-mobile{
