@@ -4,7 +4,7 @@ body,main{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-header{
+.header-mobile{
     top: 0;
     height: 100vh;
     text-align: center;
@@ -85,7 +85,7 @@ header{
     top: 0;
     z-index: 0;
 }
-header h1{
+.header-mobile h1{
     color: rgb(255, 245, 238);
     margin: 30px;
     font-size: 3em;
@@ -156,8 +156,7 @@ nav a:hover{
     position: relative;
     width: 100%;
     height: 20vh;
-    background: linear-gradient(to bottom,rgba(37, 36, 33, 0.582), rgba(255, 0, 0, 0));
-    z-index: 99;
+    visibility: hidden;
 }
 #middle{
     height: 100vh;
@@ -167,13 +166,12 @@ nav a:hover{
     position: absolute;
     width: 100%;
     height: 20vh;
-    background: linear-gradient(to bottom, rgba(255, 0, 0, 0),rgba(32, 30, 28, 0.603));
-    z-index: 99;
+    visibility: hidden;
 }
 
 /*######*/
 
-.main-container{
+.main-container-mobile{
     text-align: center;
     position: fixed;
     border-radius: 10px;
@@ -294,4 +292,76 @@ nav a:hover{
 }
 footer{
     color: rgb(150, 150, 140);
+}
+
+/*### Mobile Ends Here ###*/
+
+.main-desktop{
+    display: none;
+}
+
+
+.desk-nav-container{
+    background: red;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+.desk-navbar{
+    background: rgba(8, 3, 0, 0.795);
+    position: fixed;
+    width: 100%;
+    text-align: center;
+}
+.desk-logo{
+    width: 100px;
+    margin-top: 12px;
+    float: left;
+    margin-left: 20px;
+}
+.desk-menu{
+    float: right;
+    margin-right: 20px;
+}
+.desk-navbar div a{
+    line-height: 60px;
+    font-weight: 100;
+    font-size: 1.2em;
+}
+.desk-land-img{
+    width: 100%;
+    min-width: 1024px;
+}
+.desk-land-img-container{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+.desk-elconsos-container{
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    margin-left: 400px;
+    text-align: center;
+    margin: 0 auto;
+}
+.desk-elconsos-container div{
+    background: rgba(24, 14, 1, 0.781);
+    width: 290px;
+    margin: 0 auto;
+    color: rgb(231, 219, 202);
+}
+.desk-elconsos-container div h1{
+    padding: 20px 0;
+    font-size: 2.5em;
+}
+
+@media only screen and (min-width: 720px){
+    .header-mobile, #upper, #middle, #lower, .main-container-mobile{
+        display: none;
+    }
+    .main-desktop{
+        display: block;
+    }
+    
 }

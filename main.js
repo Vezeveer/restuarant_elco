@@ -5,7 +5,7 @@ let scrollArrow = document.querySelector('#scroll-arrow');
 let logo = document.querySelector('.logo');
 let elcoDiv = document.querySelector('.elconsos-div');
 let topBar = document.querySelector('.top-bar');
-let mainContainer = document.querySelector('.main-container');
+let mainContainer = document.querySelector('.main-container-mobile');
 let dish = document.querySelectorAll('.dish');
 let posCount = 0;
 let isScrolling;
@@ -46,7 +46,7 @@ function menuClose(){
     mbtn.style.opacity = '0';
     mbtn.className = 'menu-slide';
     headerBG.className = 'header-bg';
-    mainContainer.className = 'main-container'
+    mainContainer.className = 'main-container-mobile'
 }
 
 function openMenu(){
