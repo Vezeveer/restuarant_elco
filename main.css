@@ -60,11 +60,15 @@ header{
     flex-direction: column;
     border-radius: 25%;
     padding: 10px;
-    right: 20px;
     margin: 10px;
     margin-right: 10px;
     position: absolute;
     z-index: 4;
+    right: 0;
+}
+#menu-btn:hover{
+    background: rgba(26, 24, 24, 0.493);
+    transition: .5s;
 }
 #menu-btn div{
     width: 80%;
@@ -174,7 +178,7 @@ nav a:hover{
     position: fixed;
     border-radius: 10px;
     top: 86px;
-    height: 86%;
+    height: 100%;
     width: 100vw;
     margin-left: 5px;
     margin-right: 20px;
@@ -200,6 +204,7 @@ nav a:hover{
 }
 
 .dish img{
+    height: 100%;
     position: relative;
     border-radius: 5px;
 }
@@ -215,11 +220,14 @@ nav a:hover{
     background: rgba(22, 21, 20, 0.514);
     color: rgb(226, 227, 235);
     width: 70%;
+    margin-left: 15px;
+    margin-right: 40px;
 }
 .dish div div p{
-    width: 100%;
+    width: 80%;
+    margin-left: 20px;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 .dish-odd{
     width: 300vw;

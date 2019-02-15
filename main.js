@@ -8,20 +8,52 @@ let topBar = document.querySelector('.top-bar');
 let mainContainer = document.querySelector('.main-container');
 let dish = document.querySelectorAll('.dish');
 let posCount = 0;
+let isScrolling;
+
+function homeBtn(){
+    page1();
+    menuClose();
+}
+function breakfastBtn(){
+    servingScreen();
+    swapBreakfast();
+    menuClose();
+}
+function lunchBtn(){
+    servingScreen();
+    swapLunch();
+    menuClose();
+}
+function dinnerBtn(){
+    servingScreen();
+    swapDinner();
+    menuClose();
+}
+function aboutBtn(){
+    servingScreen();
+    swapAbout();
+    menuClose();
+}
+
+function menuOpen(){
+    mbtn.style.opacity = '1';
+    mbtn.className += ' slide';
+    headerBG.className += ' blur';
+    mainContainer.className += ' blur';
+}
+
+function menuClose(){
+    mbtn.style.opacity = '0';
+    mbtn.className = 'menu-slide';
+    headerBG.className = 'header-bg';
+    mainContainer.className = 'main-container'
+}
 
 function openMenu(){
-
     if(mbtn.style.opacity == '1'){
-        mbtn.style.opacity = '0';
-        mbtn.className = 'menu-slide';
-        headerBG.className = 'header-bg';
-        mainContainer.className = 'main-container'
-
+        menuClose();
     }else{
-        mbtn.style.opacity = '1';
-        mbtn.className += ' slide';
-        headerBG.className += ' blur';
-        mainContainer.className += ' blur';
+        menuOpen();
     }
 }
 
@@ -39,12 +71,19 @@ function swapLunch(){
     dish[0].className = 'dish-odd dish odd-lunch';
     dish[1].className = 'dish-even dish even-lunch';
     dish[2].className = 'dish-odd dish odd-lunch';
+    posCount=2;
+    if(posCount!=4)
+    clearAbout();
+    
 }
 function swapBreakfast(){
     topBar.innerHTML = '<h2>Breakfast<h2>';
     dish[0].className = 'dish-odd dish odd-breakfast';
     dish[1].className = 'dish-even dish even-breakfast';
     dish[2].className = 'dish-odd dish odd-breakfast';
+    posCount=1;
+    if(posCount!=4)
+    clearAbout();
 }
 function swapDinner(){
     topBar.innerHTML = '<h2>Dinner<h2>';
@@ -55,17 +94,22 @@ function swapDinner(){
     if(posCount!=4)
     clearAbout();
 }
+function swapAbout(){
+    dish[0].className = 'dish-odd dish odd-about';
+    dish[1].className = 'dish-even dish even-about';
+    dish[2].className = 'dish-odd dish odd-about';
+    topBar.innerHTML = '<h2>About<h2>';
+    document.querySelector('.about').style.display = 'flex';
+    changeBGtoAbout();
+    posCount=4;
+}
 function swapToHidden(){
     topBar.innerHTML = '<h2><h2>';
     dish[0].className = 'dish-odd dish';
     dish[1].className = 'dish-even dish';
     dish[2].className = 'dish-odd dish';
 }
-function swapAbout(){
-    dish[0].className = 'dish-odd dish odd-about';
-    dish[1].className = 'dish-even dish even-about';
-    dish[2].className = 'dish-odd dish odd-about';
-}
+
 
 function page1(){
     changeBGtoLand();
@@ -77,7 +121,16 @@ function page1(){
     swapToHidden();
     posCount=0;
     if(posCount!=4)
-    clearAbout();
+        clearAbout();
+}
+
+function servingScreen(){
+    changeBGtoSect1();
+    scrollArrow.style.display = 'none';
+    logo.className += ' logo-offScreen';
+    elcoDiv.className += ' elconsos-div-offScreen';
+    headerBG.style.filter = 'brightness(.5)';
+    topBar.style.display = 'block';
 }
 
 function clearAbout(){
@@ -96,79 +149,10 @@ window.addEventListener('load', function(){
     }
 })
 
-/*
-function scrollIntoView(){
-    sect1 = '0';
-}
-*/
 
-let isScrolling;
 
-/*
-window.addEventListener('scroll', function(){
-    window.clearTimeout( isScrolling );
-    
-    let upperPos = document.querySelector('#upper').getBoundingClientRect().bottom;
-
-    isScrolling = setTimeout(function(){
-        if(upperPos > 0){
-            scrollToMid();
-            console.log('up',posCount)
-            if(posCount > 0 && posCount <= 4)posCount--;
-            switch(posCount){
-            case(0):
-                page1();
-                break;
-            case(1):
-            swapBreakfast();
-                break;
-            case(2):
-            swapLunch();
-                break;
-            case(3):
-            swapDinner();
-                break;
-            }
-        }else if(upperPos < 0){
-            scrollToMid();
-            console.log('down',posCount)
-
-            if(posCount >= 0 && posCount < 4)posCount++;
-            switch(posCount){
-            case(1): //enter section1
-            changeBGtoSect1();
-            scrollArrow.style.display = 'none';
-            logo.className += ' logo-offScreen';
-            elcoDiv.className += ' elconsos-div-offScreen';
-            headerBG.style.filter = 'brightness(.5)';
-            topBar.style.display = 'block';
-            swapBreakfast();
-                break;
-            case(2):
-            swapLunch();
-                break;
-            case(3):
-            swapDinner();
-                break;
-            case(4):
-            swapAbout();
-            topBar.innerHTML = '<h2>About<h2>';
-            changeBGtoAbout();
-            document.querySelector('.about').style.display = 'flex';
-                break;
-            }
-        }
-    }, 100);
-}, false);
-*/
-
-/*if("ontouchstart" in document.documentElement){
-    window.addEventListener('touchmove', mainFunc(), false);
-}else{
-}
-*/
-
-window.addEventListener('scroll', throttle( 500));
+//MAIN
+window.addEventListener('scroll', throttle( 250));
 
 function throttle( wait) {
   var time = Date.now();
@@ -196,6 +180,7 @@ function throttle( wait) {
                 break;
             case(3):
             swapDinner();
+            changeBGtoSect1();
                 break;
             }
         }else if(upperPos < 0){
@@ -205,12 +190,7 @@ function throttle( wait) {
             if(posCount >= 0 && posCount < 4)posCount++;
             switch(posCount){
             case(1): //enter section1
-            changeBGtoSect1();
-            scrollArrow.style.display = 'none';
-            logo.className += ' logo-offScreen';
-            elcoDiv.className += ' elconsos-div-offScreen';
-            headerBG.style.filter = 'brightness(.5)';
-            topBar.style.display = 'block';
+            servingScreen();
             swapBreakfast();
                 break;
             case(2):
@@ -221,9 +201,6 @@ function throttle( wait) {
                 break;
             case(4):
             swapAbout();
-            topBar.innerHTML = '<h2>About<h2>';
-            changeBGtoAbout();
-            document.querySelector('.about').style.display = 'flex';
                 break;
             }
         }
