@@ -166,33 +166,85 @@ nav a:hover{
     border-radius: 10px;
     top: 226px;
     height: 86%;
-    width: 98%;
+    width: 100vw;
     margin-left: 5px;
     margin-right: 20px;
     background: rgba(255, 255, 255, 0);
     display: flex;
+    overflow: hidden;
 }
-.breakfast{
+.section-container{
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 300vw;
+    height: 100%;
     z-index: 5;
+    border-radius: 5px;
 }
 .dish{
     position: relative;
     z-index: 5;
     display: flex;
+    flex-direction: row;
     margin: 10px;
 }
+
 .dish img{
     position: relative;
     border-radius: 5px;
 }
 .dish div{
-    background: rgba(0, 0, 0, 0.514);
-    width: 100%;
-    color: rgb(226, 227, 235);
-    border-radius: 0px 30px 50px;
-    margin-left: 20px;
+    position: relative;
+    border-radius: 0px 30px 50%;
+    width: 100vw;
+    
+    display: flex;
+    flex-direction: row;
 }
+.dish div div{
+    background: rgba(0, 0, 0, 0.514);
+    color: rgb(226, 227, 235);
+    width: 70%;
+}
+.dish div div p{
+    width: 100%;
+    text-align: center;
+}
+.dish-odd{
+    width: 300vw;
+    right: -100vw;
+    transition: .5s;
+}
+.dish-even{
+    width: 300vw;
+    left: -300vw;
+    transition: .5s;
+}
+
+/*SWAP EVENTS*/
+.odd-breakfast{
+    right: 0vw;
+    transition: 1s;
+}
+.even-breakfast{
+    left: -200vw;
+    transition: 1s;
+}
+.odd-lunch{
+    right: 100vw;
+    transition: .5s;
+}
+.even-lunch{
+    left: -100vw;
+    transition: .5s;
+}
+.odd-dinner{
+    right: 200vw;
+    transition: .5s;
+}
+.even-dinner{
+    left: 0vw;
+    transition: .5s;
+}
+/*END OF SWAP EVENTS*/

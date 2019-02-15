@@ -6,6 +6,7 @@ let logo = document.querySelector('.logo');
 let elcoDiv = document.querySelector('.elconsos-div');
 let topBar = document.querySelector('.top-bar');
 let mainContainer = document.querySelector('.main-container');
+let dish = document.querySelectorAll('.dish');
 
 function openMenu(){
 
@@ -29,6 +30,30 @@ function changeBGtoLand(){
 }
 function changeBGtoAbout(){
     headerBG.style.backgroundImage = "url('aboutus.jpg')";
+}
+function swapLunch(){
+    topBar.innerHTML = '<h2>Lunch<h2>';
+    dish[0].className = 'dish-odd dish odd-lunch';
+    dish[1].className = 'dish-even dish even-lunch';
+    dish[2].className = 'dish-odd dish odd-lunch';
+}
+function swapBreakfast(){
+    topBar.innerHTML = '<h2>Breakfast<h2>';
+    dish[0].className = 'dish-odd dish odd-breakfast';
+    dish[1].className = 'dish-even dish even-breakfast';
+    dish[2].className = 'dish-odd dish odd-breakfast';
+}
+function swapDinner(){
+    topBar.innerHTML = '<h2>Dinner<h2>';
+    dish[0].className = 'dish-odd dish odd-dinner';
+    dish[1].className = 'dish-even dish even-dinner';
+    dish[2].className = 'dish-odd dish odd-dinner';
+}
+function swapToHidden(){
+    topBar.innerHTML = '<h2><h2>';
+    dish[0].className = 'dish-odd dish';
+    dish[1].className = 'dish-even dish';
+    dish[2].className = 'dish-odd dish';
 }
 
 function scrollToMid(){
@@ -62,25 +87,25 @@ window.addEventListener('wheel', function(){
             
             switch(posCount){
             case(1):
-                changeBGtoLand();
                 posCount--;
+                changeBGtoLand();
                 scrollArrow.style.display = 'block';
                 logo.className = 'logo';
                 elcoDiv.className = 'elconsos-div';
                 headerBG.style.filter = 'none';
                 topBar.style.display = 'none';
+                swapToHidden();
                 break;
             case(2):
+            swapBreakfast();
                 posCount--;
                 break;
             case(3):
+            swapLunch();
                 posCount--;
                 break;
             case(4):
-                posCount--;
-                break;
-            case(5):
-                changeBGtoSect1();
+            swapDinner();
                 posCount--;
                 break;
             }
@@ -96,19 +121,19 @@ window.addEventListener('wheel', function(){
             elcoDiv.className += ' elconsos-div-offScreen';
             headerBG.style.filter = 'brightness(.5)';
             topBar.style.display = 'block';
+            swapBreakfast();
                 break;
             case(1):
+            swapLunch();
                 posCount++;
                 break;
             case(2):
+            swapDinner();
                 posCount++;
                 break;
             case(3):
-                posCount++;
-                break;
-            case(4):
+            swapToHidden();
             changeBGtoAbout();
-                posCount++;
                 break;
             }
         }
