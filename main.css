@@ -358,6 +358,12 @@ footer{
     /**/
 }
 
+.breakpoint1{
+    width: 100%;
+    height: 10vh;
+    background: rgb(17, 8, 1);
+}
+
 /*Section Starts Here*/
 .desktop-meals{
     background-image: url('desktopsection.jpg');
@@ -365,20 +371,19 @@ footer{
     background-size: cover;
     background-position: 50% 50%;
     height: 100vmin;
+    display: flex;
+    justify-content: space-evenly;
     
 }
 .desk-meals-inner{
     width: 100%;
-    height: 100%;
     max-width: 900px;
-    margin: auto;
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 .desk-meals-inner-inner{
     width: 100%;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
     background: rgba(216, 205, 171, 0.466);
     color: rgba(243, 245, 153, 0.897);
 }
@@ -388,9 +393,15 @@ footer{
     justify-content: space-evenly;
     background: rgba(10, 10, 10, 0.685);
 }
+
+.desk-meals-content{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background: rgba(219, 212, 212, 0.527);
+}
 .desk-meals-content img{
     width: 100%;
-
     position: absolute;
 }
 .desk-meals-content p{
@@ -398,20 +409,14 @@ footer{
     z-index: 1;
     bottom: -16px;
     text-align: center;
+    width: 100%;
+    height: 50%;
     background: rgba(20, 20, 20, 0.329);
 }
-.desk-meals-content{
-    width: 100%;
-}
 .desk-meals-content div{
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
 }
 .desk-meals-content div div{
     position: relative;
-    background: green;
     margin: 20px;
     width: 150px;
     height: 150px;
@@ -419,7 +424,7 @@ footer{
 
 
 @media only screen and (min-width: 720px){
-    .header-mobile, #upper, #middle, #lower, .main-container-mobile{
+    .about,.header-mobile, #upper, #middle, #lower, .main-container-mobile{
         display: none;
     }
     .main-desktop{

@@ -10,6 +10,11 @@ let dish = document.querySelectorAll('.dish');
 let posCount = 0;
 let isScrolling;
 
+document.body.onresize = function(){
+    if(document.body.offsetWidth > '705')
+    clearAbout();
+}
+
 function homeBtn(){
     page1();
     menuClose();
