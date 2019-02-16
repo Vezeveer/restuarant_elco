@@ -7,8 +7,10 @@ let elcoDiv = document.querySelector('.elconsos-div');
 let topBar = document.querySelector('.top-bar');
 let mainContainer = document.querySelector('.main-container-mobile');
 let dish = document.querySelectorAll('.dish');
+
 let posCount = 0;
 let isScrolling;
+
 
 document.body.onresize = function(){
     if(document.body.offsetWidth > '705')
@@ -169,6 +171,9 @@ function throttle( wait) {
     let upperPos = document.querySelector('#upper').getBoundingClientRect().bottom;
 
     isScrolling = setTimeout(function(){
+        dimIfOffscreen('.desk-land-img-container', '.desktop-meals','.desk-about');
+
+
         if(upperPos > 0){
             scrollToMid();
             console.log('up',posCount)
@@ -215,4 +220,59 @@ function throttle( wait) {
       time = Date.now();
     }
   }
+}
+
+function dimIfOffscreen(topClassContainer, midClassContainer, lowerClassContainer){
+    let containerTopVal = document.querySelector(topClassContainer).getBoundingClientRect().top;
+    let winInnerHeight = window.innerHeight;
+    let containerMidVal = document.querySelector(midClassContainer).getBoundingClientRect().top;
+    let containerLowerVal = document.querySelector(lowerClassContainer).getBoundingClientRect().top;
+
+    
+    if(containerTopVal*-1 >= Math.floor(winInnerHeight/2)){
+        document.querySelector(topClassContainer).style.opacity = '.2';
+        document.querySelector(midClassContainer).style.opacity = '1';
+        changeDeskNav();
+    }
+    if(containerTopVal*-1 <= Math.floor(winInnerHeight/2)){
+        document.querySelector(topClassContainer).style.opacity = '1';
+        document.querySelector(midClassContainer).style.opacity = '.2';
+        changeDeskNavNormal();
+    }
+    if(containerMidVal*-1 >= Math.floor(winInnerHeight/2)){
+        document.querySelector(midClassContainer).style.opacity = '.2';
+
+    }
+    if(containerLowerVal >= Math.floor(winInnerHeight/2)){
+        document.querySelector(lowerClassContainer).style.opacity = '.2';
+        
+    }else if(containerLowerVal <= Math.floor(winInnerHeight/2)){
+
+        document.querySelector(lowerClassContainer).style.opacity = '1';
+
+    }
+}
+
+function changeDeskNav(){
+  
+    let deskLogo = document.querySelector('.desk-logo');
+    let deskNavbar = document.querySelectorAll('.desk-navbar div a');
+    for(let i=0;i<4;i++){
+    deskNavbar[i].style.lineHeight = '40px';
+    deskNavbar[i].style.fontSize = '1em';
+    }
+    deskLogo.style.filter = 'brightness(.5)';
+    deskLogo.style.width = '50px';
+}
+function changeDeskNavNormal(){
+ 
+    let deskNavbar = document.querySelectorAll('.desk-navbar div a');
+    let deskLogo = document.querySelector('.desk-logo');
+
+    for(let i=0;i<4;i++){
+    deskNavbar[i].style.lineHeight = '60px';
+    deskNavbar[i].style.fontSize = '1.2em';
+    }
+    deskLogo.style.filter = 'brightness(1)';
+    deskLogo.style.width = '100px';
 }
